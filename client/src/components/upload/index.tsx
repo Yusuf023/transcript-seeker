@@ -132,25 +132,30 @@ export function Upload({ provider, options }: UploadProps) {
         createdAt: new Date(),
         status: 'loaded',
         data: {
-          id: bot_id,
+          // id: bot_id,
           name: file.name, // Use the file name as the meeting name
-          editors: [
-            {
-              video: {
-                transcripts: transcript,
-              },
-            },
-          ],
-          attendees: [{ name: '-' }], // The transcript doesn't provide attendee information
-          assets: [
-            {
-              s3_path: '', // We don't have this information from the transcript
-            },
-          ],
-          created_at: {
-            secs_since_epoch: Math.floor(Date.now() / 1000),
-            nanos_since_epoch: (Date.now() % 1000) * 1000000,
-          },
+          mp4: "url.mp4",
+          bot_data: {
+            bot: null,
+            transcripts: [],
+          }
+          // editors: [
+          //   {
+          //     video: {
+          //       transcripts: transcript,
+          //     },
+          //   },
+          // ],
+          // attendees: [{ name: '-' }], // The transcript doesn't provide attendee information
+          // assets: [
+          //   {
+          //     s3_path: '', // We don't have this information from the transcript
+          //   },
+          // ],
+          // created_at: {
+          //   secs_since_epoch: Math.floor(Date.now() / 1000),
+          //   nanos_since_epoch: (Date.now() % 1000) * 1000000,
+          // },
         },
       };
 

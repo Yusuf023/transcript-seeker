@@ -22,7 +22,8 @@ import { z } from 'zod';
 
 import { HeaderTitle } from '@/components/header-title';
 
-import { PROXY_URL, S3_PROXY_URL } from '@/App';
+// import { PROXY_URL, S3_PROXY_URL } from '@/App';
+import { PROXY_URL } from '@/App';
 import { getById, updateById } from '@/lib/db';
 import { Separator } from '@radix-ui/react-separator';
 import { Link } from 'lucide-react';

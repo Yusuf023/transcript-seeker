@@ -47,7 +47,7 @@ export const fetchBotDetailsWrapper = async ({
   });
   const data: MeetingInfo = serverAvailability === 'server' ? response.data['data'] : response.data;
 
-  if (!data?.id)
+  if (!data?.bot_data?.bot?.id)
     return {
       data: {
         data: undefined,
@@ -56,15 +56,17 @@ export const fetchBotDetailsWrapper = async ({
 
   return {
     data: {
-      id: data.id,
+      id: data.bot_data?.bot?.id,
       name: 'Spoke Recorded Meeting',
-      attendees: data['attendees'].map((attendee: { name: string }) => {
-        return attendee.name;
-      }),
+      // attendees: data['attendees'].map((attendee: { name: string }) => {
+      //   return attendee.name;
+      // }),
+      attendees: ["Aucun"],
       data: data,
-      createdAt: new Date(
-        data.created_at.secs_since_epoch * 1000 + data.created_at.nanos_since_epoch / 1000000,
-      ),
+      // createdAt: new Date(
+      //   data.created_at.secs_since_epoch * 1000 + data.created_at.nanos_since_epoch / 1000000,
+      // ),
+      createdAt: Date.now()
     },
   };
 };
