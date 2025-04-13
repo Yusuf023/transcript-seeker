@@ -1,5 +1,5 @@
-import { defineEventHandler, handleCors } from 'h3';
 import { useRuntimeConfig } from '#imports';
+import { defineEventHandler, handleCors } from 'h3';
 
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig(event);
@@ -16,4 +16,5 @@ export default defineEventHandler((event) => {
   if (corsHandled) {
     return;
   }
+  // Continue to the next handler for non-CORS requests
 });
